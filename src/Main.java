@@ -17,9 +17,7 @@ public class Main {
                 case "2" -> biudzetas.pridetiIslaiduIrasa(sc);
                 case "3" -> biudzetas.gautiPajamuIrasa(sc);
                 case "4" -> biudzetas.gautiIslaiduIrasa(sc);
-                case "x" -> {
-                    run = false;
-                }
+                case "x" -> run = false;
                 default -> System.out.println("Bloga įvestis...");
             }
         }
