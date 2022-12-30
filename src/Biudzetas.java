@@ -26,7 +26,7 @@ public class Biudzetas {
             System.out.println("Irasas nerastas");
             return;
         }
-        System.out.println("suma: " + pajamos[i].suma + "; kategorija: " + pajamos[i].kategorija + "; ar i banka: " + pajamos[i].pozymisArIBanka + "; papildoma informacija: " + pajamos[i].papildomaInfo);
+        System.out.println(pajamos[i].data + "; suma: " + pajamos[i].suma + "; kategorija: " + pajamos[i].kategorija + "; ar i banka: " + pajamos[i].pozymisArIBanka + "; papildoma informacija: " + pajamos[i].papildomaInfo);
     }
 
     public void gautiIslaiduIrasa(String index) {
@@ -35,6 +35,6 @@ public class Biudzetas {
             System.out.println("Irasas nerastas");
             return;
         }
-        System.out.println("suma: " + islaidos[i].suma + "; kategorija: " + islaidos[i].kategorija + "; atsiskaitymo budas: " + islaidos[i].atsiskaitymoBudas + "; papildoma informacija: " + islaidos[i].papildomaInfo);
+        System.out.println(islaidos[i].data + " suma: " + islaidos[i].suma + "; kategorija: " + islaidos[i].kategorija + "; atsiskaitymo budas: " + islaidos[i].atsiskaitymoBudas + "; papildoma informacija: " + islaidos[i].papildomaInfo);
     }
 }
