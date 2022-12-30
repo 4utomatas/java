@@ -64,7 +64,7 @@ public class Biudzetas {
         }
 
         for(PajamuIrasas p : pajamos) {
-            System.out.println(p.id + " suma: " + p.suma);
+            System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
         }
     }
 
@@ -75,7 +75,7 @@ public class Biudzetas {
         }
 
         for(IslaiduIrasas p : islaidos) {
-            System.out.println(p.id + " suma: " + p.suma);
+            System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
         }
     }
 
