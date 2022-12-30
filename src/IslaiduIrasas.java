@@ -21,4 +21,8 @@ public class IslaiduIrasas extends Irasas {
                 ", data=" + data +
                 ", papildomaInfo='" + papildomaInfo + '\'';
     }
+
+    public String getDisplayString() {
+        return this.data + " suma: " + this.suma + "; kategorija: " + this.islaiduKategorija + "; atsiskaitymo budas: " + this.atsiskaitymoBudas + "; papildoma informacija: " + this.papildomaInfo;
+    }
 }
