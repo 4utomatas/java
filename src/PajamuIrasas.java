@@ -4,11 +4,11 @@ public class PajamuIrasas {
     int id = 0;
     static int counter = 0;
     float suma;
-    int kategorija;
+    String kategorija;
     LocalDateTime data;
     boolean pozymisArIBanka;
     String papildomaInfo;
-    PajamuIrasas(float sum, int kat, boolean pozymis, String info) {
+    PajamuIrasas(float sum, String kat, boolean pozymis, String info) {
         counter++;
         id = counter;
         suma = sum;

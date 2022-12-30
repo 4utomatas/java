@@ -6,11 +6,10 @@ public class Biudzetas {
 
     public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
         int arIB = Integer.parseInt(arIBanka);
         boolean b = arIB == 1;
 
-        PajamuIrasas p = new PajamuIrasas(s, k, b, papildomaInfo);
+        PajamuIrasas p = new PajamuIrasas(s, kategorija, b, papildomaInfo);
         pajamos.add(p);
 
         System.out.println("Pridetas irasas");
@@ -18,9 +17,8 @@ public class Biudzetas {
 
     public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
 
-        IslaiduIrasas i = new IslaiduIrasas(s, k, atsiskaitymoBudas, papildomaInfo);
+        IslaiduIrasas i = new IslaiduIrasas(s, kategorija, atsiskaitymoBudas, papildomaInfo);
         islaidos.add(i);
 
         System.out.println("Pridetas irasas");
@@ -28,7 +26,7 @@ public class Biudzetas {
 
     public void gautiPajamuIrasa(String index) {
         int i = Integer.parseInt(index);
-        if(pajamos.size() < i ||  pajamos.get(i) == null) {
+        if(pajamos.size() - 1 < i ||  pajamos.get(i) == null) {
             System.out.println("Irasas nerastas");
             return;
         }
@@ -37,7 +35,7 @@ public class Biudzetas {
 
     public void gautiIslaiduIrasa(String index) {
         int i = Integer.parseInt(index);
-        if(islaidos.size() < i || islaidos.get(i) == null) {
+        if(islaidos.size() - 1 < i || islaidos.get(i) == null) {
             System.out.println("Irasas nerastas");
             return;
         }
