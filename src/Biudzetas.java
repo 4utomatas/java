@@ -4,18 +4,22 @@ public class Biudzetas {
     private IslaiduIrasas[] islaidos = new IslaiduIrasas[100];
     private int islaiduIndex = 0;
 
-    public void pridetiPajamuIrasa(String suma) {
+    public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        pajamos[pajamuIndex] = new PajamuIrasas();
-        pajamos[pajamuIndex].suma = s;
+        int k = Integer.parseInt(kategorija);
+        int arIB = Integer.parseInt(arIBanka);
+        boolean b = arIB == 1;
+        pajamos[pajamuIndex] = new PajamuIrasas(s, k, b, papildomaInfo);
         pajamuIndex++;
+        System.out.println("Pridetas irasas");
     }
 
-    public void pridetiIslaiduIrasa(String suma) {
+    public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        islaidos[islaiduIndex] = new IslaiduIrasas();
-        islaidos[islaiduIndex].suma = s;
+        int k = Integer.parseInt(kategorija);
+        islaidos[islaiduIndex] = new IslaiduIrasas(s, k, atsiskaitymoBudas, papildomaInfo);
         islaiduIndex++;
+        System.out.println("Pridetas irasas");
     }
 
     public void gautiPajamuIrasa(String index) {

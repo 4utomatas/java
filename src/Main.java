@@ -15,13 +15,25 @@ public class Main {
             switch(input) {
                 case "1" -> {
                     System.out.println("Iveskite suma");
-                    input = sc.next();
-                    biudzetas.pridetiPajamuIrasa(input);
+                    String suma = sc.next();
+                    System.out.println("Iveskite kategorija");
+                    String kategorija = sc.next();
+                    System.out.println("Iveskite Ar i banka? Taip: 1, Ne: 0");
+                    String arIBanka = sc.next();
+                    System.out.println("Iveskite papildoma informacija");
+                    String papildomaInfo = sc.next();
+                    biudzetas.pridetiPajamuIrasa(suma, kategorija, arIBanka, papildomaInfo);
                 }
                 case "2" -> {
                     System.out.println("Iveskite suma");
-                    input = sc.next();
-                    biudzetas.pridetiIslaiduIrasa(input);
+                    String suma = sc.next();
+                    System.out.println("Iveskite kategorija");
+                    String kategorija = sc.next();
+                    System.out.println("Iveskite Atsiskaitymo buda");
+                    String atsiskaitymoBudas = sc.next();
+                    System.out.println("Iveskite papildoma informacija");
+                    String papildomaInfo = sc.next();
+                    biudzetas.pridetiIslaiduIrasa(suma, kategorija, atsiskaitymoBudas, papildomaInfo);
                 }
                 case "3" -> {
                     System.out.println("Iveskite index");
