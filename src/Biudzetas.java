@@ -22,19 +22,19 @@ public class Biudzetas {
 
     public void gautiPajamuIrasa(String index) {
         int i = Integer.parseInt(index);
-        if(pajamos[i] == null) {
+        if(i > 100 || pajamos[i] == null) {
             System.out.println("Irasas nerastas");
             return;
         }
-        System.out.println("Pajamos yra: " + pajamos[i].suma);
+        System.out.println("suma: " + pajamos[i].suma + "; kategorija: " + pajamos[i].kategorija + "; ar i banka: " + pajamos[i].pozymisArIBanka + "; papildoma informacija: " + pajamos[i].papildomaInfo);
     }
 
     public void gautiIslaiduIrasa(String index) {
         int i = Integer.parseInt(index);
-        if(islaidos[i] == null) {
+        if(i > 100 || islaidos[i] == null) {
             System.out.println("Irasas nerastas");
             return;
         }
-        System.out.println("Islaidos yra: " + islaidos[i].suma);
+        System.out.println("suma: " + islaidos[i].suma + "; kategorija: " + islaidos[i].kategorija + "; atsiskaitymo budas: " + islaidos[i].atsiskaitymoBudas + "; papildoma informacija: " + islaidos[i].papildomaInfo);
     }
 }
