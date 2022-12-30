@@ -10,11 +10,10 @@ public class Biudzetas {
 
     public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
         int arIB = Integer.parseInt(arIBanka);
         boolean b = arIB == 1;
 
-        PajamuIrasas p = new PajamuIrasas(s, k, b, papildomaInfo);
+        PajamuIrasas p = new PajamuIrasas(s, kategorija, b, papildomaInfo);
         pridetiIrasa(p);
 
         System.out.println("Pridetas irasas");
@@ -22,9 +21,8 @@ public class Biudzetas {
 
     public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
 
-        IslaiduIrasas i = new IslaiduIrasas(s, k, atsiskaitymoBudas, papildomaInfo);
+        IslaiduIrasas i = new IslaiduIrasas(s, kategorija, atsiskaitymoBudas, papildomaInfo);
         pridetiIrasa(i);
 
         System.out.println("Pridetas irasas");
@@ -149,7 +147,7 @@ public class Biudzetas {
 
         input = processChange(sc, "Kategorija: " + item.pajamuKategorija);
         if (input != null) {
-            item.pajamuKategorija = Integer.parseInt(input);
+            item.pajamuKategorija = input;
         }
 
         input = processChange(sc, "Ar i banka: " + item.pozymisArIBanka);
@@ -177,7 +175,7 @@ public class Biudzetas {
 
         input = processChange(sc, "Kategorija: " + item.islaiduKategorija);
         if (input != null) {
-            item.islaiduKategorija = Integer.parseInt(input);
+            item.islaiduKategorija = input;
         }
 
         input = processChange(sc, "Ar i banka: " + item.atsiskaitymoBudas);

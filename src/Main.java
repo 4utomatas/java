@@ -94,12 +94,6 @@ public class Main {
         System.out.println("[x] - pabaiga");
         System.out.println("______________________");
     }
-
-    static String getTime() {
-        LocalTime timeNow = LocalTime.now();
-        return timeNow.format(DateTimeFormatter.ofPattern("[HH:mm:ss]"));
-    }
-
 }
 
 

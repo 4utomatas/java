@@ -1,10 +1,10 @@
 import java.time.LocalDateTime;
 
 public class IslaiduIrasas extends Irasas {
-    int islaiduKategorija;
+    String islaiduKategorija;
     String atsiskaitymoBudas;
 
-    IslaiduIrasas(float sum, int kat, String budas, String info) {
+    IslaiduIrasas(float sum, String kat, String budas, String info) {
         super(sum, info);
         islaiduKategorija = kat;
         atsiskaitymoBudas = budas;

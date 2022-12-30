@@ -1,9 +1,9 @@
 import java.time.LocalDateTime;
 
 public class PajamuIrasas extends Irasas {
-    int pajamuKategorija;
+    String pajamuKategorija;
     boolean pozymisArIBanka;
-    PajamuIrasas(float sum, int kat, boolean pozymis, String info) {
+    PajamuIrasas(float sum, String kat, boolean pozymis, String info) {
         super(sum, info);
         pajamuKategorija = kat;
         pozymisArIBanka = pozymis;
