@@ -12,6 +12,7 @@ public class Main {
         while (run) {
             pradzia();
             input = sc.next();
+            System.out.println("______________________");
             switch(input) {
                 case "1" -> {
                     System.out.println("Iveskite suma");
@@ -33,6 +34,25 @@ public class Main {
                     input = sc.next();
                     biudzetas.gautiIslaiduIrasa(input);
                 }
+                case "5" -> {
+                    System.out.println("Balansas: " + biudzetas.balansas());
+                }
+                case "6" -> {
+                    biudzetas.atvaizduotiPajamuIrasus();
+                }
+                case "7" -> {
+                    biudzetas.atvaizduotiIslaiduIrasus();
+                }
+                case "8" -> {
+                    System.out.println("Iveskite id");
+                    input = sc.next();
+                    biudzetas.pasalintiPajamuIrasa(input);
+                }
+                case "9" -> {
+                    System.out.println("Iveskite id");
+                    input = sc.next();
+                    biudzetas.pasalintiIslaiduIrasa(input);
+                }
                 case "x" -> {
                     run = false;
                 }
@@ -50,6 +70,11 @@ public class Main {
         System.out.println("[2] - prideti islaidu irasa");
         System.out.println("[3] - gauti pajamu irasa");
         System.out.println("[4] - gauti islaidu irasa");
+        System.out.println("[5] - patikrinti balansa");
+        System.out.println("[6] - atspausdinti pajamu irasus");
+        System.out.println("[7] - atspausdinti islaidu irasus");
+        System.out.println("[8] - pasalinti pajamu irasa");
+        System.out.println("[9] - pasalinti islaidu irasa");
         System.out.println("[x] - pabaiga");
         System.out.println("______________________");
     }
