@@ -65,6 +65,8 @@ public class Main {
                     input = sc.next();
                     biudzetas.pasalintiIslaiduIrasa(input);
                 }
+                case "10" -> biudzetas.redaguotiPajamuIrasa(sc);
+                case "11" -> biudzetas.redaguotiIslaiduIrasa(sc);
                 case "x" -> {
                     run = false;
                 }
@@ -87,6 +89,8 @@ public class Main {
         System.out.println("[7] - atspausdinti islaidu irasus");
         System.out.println("[8] - pasalinti pajamu irasa");
         System.out.println("[9] - pasalinti islaidu irasa");
+        System.out.println("[10] - redaguoti pajamu irasa");
+        System.out.println("[11] - redaguoti islaidu irasa");
         System.out.println("[x] - pabaiga");
         System.out.println("______________________");
     }
