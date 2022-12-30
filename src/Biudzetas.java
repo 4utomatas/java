@@ -202,4 +202,11 @@ public class Biudzetas {
         return null;
     }
 
+    private void atnaujintiIrasa(Irasas irasas) {
+        for (int i = 0; i < irasai.size(); i++) {
+            if(irasai.get(i).equals(irasas)) {
+                irasai.set(i, irasas);
+            }
+        }
+    }
 }
