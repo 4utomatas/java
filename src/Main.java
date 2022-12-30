@@ -39,12 +39,14 @@ public class Main {
                 case "3" -> {
                     System.out.println("Iveskite index");
                     input = sc.next();
-                    biudzetas.gautiPajamuIrasa(input);
+                    PajamuIrasas p = biudzetas.gautiPajamuIrasa(input);
+                    System.out.println(p.getId() + " - suma: " + p.suma + "; kategorija: " + p.pajamuKategorija + "; ar i banka: " + p.pozymisArIBanka);
                 }
                 case "4" -> {
                     System.out.println("Iveskite index");
                     input = sc.next();
-                    biudzetas.gautiIslaiduIrasa(input);
+                    IslaiduIrasas p = biudzetas.gautiIslaiduIrasa(input);
+                    System.out.println(p.getId() + " - suma: " + p.suma + "; kategorija: " + p.islaiduKategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
                 }
                 case "5" -> {
                     System.out.println("Balansas: " + biudzetas.balansas());
