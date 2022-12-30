@@ -14,4 +14,8 @@ public class IslaiduIrasas {
         papildomaInfo = info;
         data = LocalDateTime.now();
     }
+
+    public String getDisplayString() {
+        return this.data + " suma: " + this.suma + "; kategorija: " + this.kategorija + "; atsiskaitymo budas: " + this.atsiskaitymoBudas + "; papildoma informacija: " + this.papildomaInfo;
+    }
 }
