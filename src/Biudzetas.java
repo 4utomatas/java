@@ -76,9 +76,8 @@ public class Biudzetas {
             System.out.println("Irasas nerastas");
         } catch(NumberFormatException nfe) {
             System.out.println("Klaida! Ivestas ne skaicius!");
-        } finally {
-            return null;
         }
+        return null;
     }
 
     public IslaiduIrasas gautiIslaiduIrasa(String id) {
@@ -93,9 +92,8 @@ public class Biudzetas {
             System.out.println("Irasas nerastas");
         } catch(NumberFormatException nfe) {
             System.out.println("Klaida! Ivestas ne skaicius!");
-        } finally {
-            return null;
         }
+        return null;
     }
 
     public float balansas() {
