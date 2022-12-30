@@ -89,14 +89,10 @@ public class Biudzetas {
 
     public PajamuIrasas gautiPajamuIrasa(Scanner sc) {
         try {
-            System.out.println("Iveskite id");
-            String id = sc.next();
-            int pId = Integer.parseInt(id);
-            ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
-            for (int i = 0; i < pajamos.size(); i++) {
-                if (pajamos.get(i).getId() == pId) {
-                    return pajamos.get(i);
-                }
+            int id = getItem(sc);
+            Irasas irasas = irasai.get(id);
+            if (id != -1 && irasas instanceof PajamuIrasas) {
+                return (PajamuIrasas) irasas;
             }
             System.out.println("Irasas nerastas");
         } catch(NumberFormatException nfe) {
@@ -112,14 +108,10 @@ public class Biudzetas {
 
     public IslaiduIrasas gautiIslaiduIrasa(Scanner sc) {
         try {
-            System.out.println("Iveskite id");
-            String id = sc.next();
-            ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
-            int pId = Integer.parseInt(id);
-            for (int i = 0; i < islaidos.size(); i++) {
-                if (islaidos.get(i).getId() == pId) {
-                    return islaidos.get(i);
-                }
+            int id = getItem(sc);
+            Irasas irasas = irasai.get(id);
+            if (id != -1 && irasas instanceof IslaiduIrasas) {
+                return (IslaiduIrasas) irasas;
             }
             System.out.println("Irasas nerastas");
         } catch(NumberFormatException nfe) {
@@ -167,15 +159,12 @@ public class Biudzetas {
 
     public void pasalintiPajamuIrasa(Scanner sc) {
         try {
-            System.out.println("Iveskite id");
-            String id = sc.next();
-            int pId = Integer.parseInt(id);
-            for (int i = 0; i < irasai.size(); i++) {
-                if (irasai.get(i).getId() == pId) {
-                    irasai.remove(i);
-                    System.out.println(pId + " irasas pasalintas");
-                    return;
-                }
+            int id = getItem(sc);
+            if (id != -1 && irasai.get(id) instanceof PajamuIrasas) {
+                irasai.remove(id);
+                System.out.println(id + " irasas pasalintas");
+            } else {
+                System.out.println("Irasas nerastas");
             }
         } catch(NumberFormatException nfe) {
             System.out.println("Klaida! Ivestas ne skaicius!");
@@ -184,15 +173,12 @@ public class Biudzetas {
 
     public void pasalintiIslaiduIrasa(Scanner sc) {
         try {
-            System.out.println("Iveskite id");
-            String id = sc.next();
-            int pId = Integer.parseInt(id);
-            for (int i = 0; i < irasai.size(); i++) {
-                if (irasai.get(i).getId() == pId) {
-                    irasai.remove(i);
-                    System.out.println(pId + " irasas pasalintas");
-                    return;
-                }
+            int id = getItem(sc);
+            if (id != -1 && irasai.get(id) instanceof IslaiduIrasas) {
+                irasai.remove(id);
+                System.out.println(id + " irasas pasalintas");
+            } else {
+                System.out.println("Irasas nerastas");
             }
         } catch(NumberFormatException nfe) {
             System.out.println("Klaida! Ivestas ne skaicius!");
@@ -274,5 +260,20 @@ public class Biudzetas {
                 irasai.set(i, irasas);
             }
         }
+    }
+
+    // returns index of the item in the list or -1 if not found
+    private int getItem(Scanner sc) {
+        System.out.println("Iveskite id");
+
+        String id = sc.next();
+        int pId = Integer.parseInt(id);
+
+        for (int i = 0; i < irasai.size(); i++) {
+            if (irasai.get(i).getId() == pId) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
