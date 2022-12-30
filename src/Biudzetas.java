@@ -43,7 +43,7 @@ public class Biudzetas {
     public ArrayList<IslaiduIrasas> gautiIslaiduIrasus() {
         ArrayList<IslaiduIrasas> list = new ArrayList<>();
         for(Irasas i : irasai) {
-            if(i instanceof PajamuIrasas) {
+            if(i instanceof IslaiduIrasas) {
                 list.add((IslaiduIrasas) i);
             }
         }
