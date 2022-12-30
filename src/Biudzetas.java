@@ -29,7 +29,7 @@ public class Biudzetas {
         for (int i = 0; i < pajamos.size(); i++) {
             if (pajamos.get(i).id == pId) {
                 PajamuIrasas p = pajamos.get(i);
-                System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
+                System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
                 return;
             }
         }
@@ -41,7 +41,7 @@ public class Biudzetas {
         for (int i = 0; i < islaidos.size(); i++) {
             if (islaidos.get(i).id == pId) {
                 IslaiduIrasas p = islaidos.get(i);
-                System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
+                System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
                 return;
             }
         }
@@ -68,7 +68,7 @@ public class Biudzetas {
         }
 
         for(PajamuIrasas p : pajamos) {
-            System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
+            System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
         }
     }
 
@@ -79,7 +79,7 @@ public class Biudzetas {
         }
 
         for(IslaiduIrasas p : islaidos) {
-            System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
+            System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
         }
     }
 
