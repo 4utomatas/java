@@ -5,13 +5,17 @@ public class IslaiduIrasas {
     static int counter = 0;
     float suma;
     int kategorija;
-    LocalDateTime dataSuLaiku;
+    LocalDateTime data;
     String atsiskaitymoBudas;
     String papildomaInfo;
 
-    IslaiduIrasas() {
+    IslaiduIrasas(float sum, int kat, String budas, String info) {
         counter++;
         id = counter;
-        dataSuLaiku = LocalDateTime.now();
+        suma = sum;
+        kategorija = kat;
+        atsiskaitymoBudas = budas;
+        papildomaInfo = info;
+        data = LocalDateTime.now();
     }
 }

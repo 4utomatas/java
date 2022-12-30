@@ -8,10 +8,13 @@ public class PajamuIrasas {
     LocalDateTime data;
     boolean pozymisArIBanka;
     String papildomaInfo;
-
-    PajamuIrasas() {
+    PajamuIrasas(float sum, int kat, boolean pozymis, String info) {
         counter++;
         id = counter;
+        suma = sum;
+        kategorija = kat;
+        pozymisArIBanka = pozymis;
+        papildomaInfo = info;
         data = LocalDateTime.now();
     }
 }

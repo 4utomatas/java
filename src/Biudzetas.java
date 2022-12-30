@@ -4,18 +4,26 @@ public class Biudzetas {
     private ArrayList<PajamuIrasas> pajamos = new ArrayList<PajamuIrasas>();
     private ArrayList<IslaiduIrasas> islaidos = new ArrayList<IslaiduIrasas>();
 
-    public void pridetiPajamuIrasa(String suma) {
+    public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        PajamuIrasas p = new PajamuIrasas();
-        p.suma = s;
+        int k = Integer.parseInt(kategorija);
+        int arIB = Integer.parseInt(arIBanka);
+        boolean b = arIB == 1;
+
+        PajamuIrasas p = new PajamuIrasas(s, k, b, papildomaInfo);
         pajamos.add(p);
+
+        System.out.println("Pridetas irasas");
     }
 
-    public void pridetiIslaiduIrasa(String suma) {
+    public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        IslaiduIrasas i = new IslaiduIrasas();
-        i.suma = s;
+        int k = Integer.parseInt(kategorija);
+
+        IslaiduIrasas i = new IslaiduIrasas(s, k, atsiskaitymoBudas, papildomaInfo);
         islaidos.add(i);
+
+        System.out.println("Pridetas irasas");
     }
 
     public void gautiPajamuIrasa(String index) {
