@@ -24,4 +24,8 @@ public class PajamuIrasas extends Irasas {
                 "," + data +
                 "," + papildomaInfo + ";\n";
     }
+
+    String getDisplayString() {
+        return this.data + "; suma: " + this.suma + "; kategorija: " + this.pajamuKategorija + "; ar i banka: " + this.pozymisArIBanka + "; papildoma informacija: " + this.papildomaInfo;
+    }
 }

@@ -16,8 +16,17 @@ public class Biudzetas {
         irasai.add(irasas);
     }
 
-    public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
+    public void pridetiPajamuIrasa(Scanner sc) {
         try {
+            System.out.println("Iveskite suma");
+            String suma = sc.next();
+            System.out.println("Iveskite kategorija");
+            String kategorija = sc.next();
+            System.out.println("Iveskite Ar i banka? Taip: 1, Ne: 0");
+            String arIBanka = sc.next();
+            System.out.println("Iveskite papildoma informacija");
+            String papildomaInfo = sc.next();
+
             float s = Float.parseFloat(suma);
             int arIB = Integer.parseInt(arIBanka);
             boolean b = arIB == 1;
@@ -31,8 +40,17 @@ public class Biudzetas {
         }
     }
 
-    public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
+    public void pridetiIslaiduIrasa(Scanner sc) {
         try {
+            System.out.println("Iveskite suma");
+            String suma = sc.next();
+            System.out.println("Iveskite kategorija");
+            String kategorija = sc.next();
+            System.out.println("Iveskite Atsiskaitymo buda");
+            String atsiskaitymoBudas = sc.next();
+            System.out.println("Iveskite papildoma informacija");
+            String papildomaInfo = sc.next();
+
             float s = Float.parseFloat(suma);
 
             IslaiduIrasas i = new IslaiduIrasas(s, kategorija, atsiskaitymoBudas, papildomaInfo);
@@ -64,8 +82,15 @@ public class Biudzetas {
         return list;
     }
 
-    public PajamuIrasas gautiPajamuIrasa(String id) {
+    public void atvaizduotiPajamuIrasa(Scanner sc) {
+        PajamuIrasas irasas = gautiPajamuIrasa(sc);
+        if (irasas != null) System.out.println(irasas.getDisplayString());
+    }
+
+    public PajamuIrasas gautiPajamuIrasa(Scanner sc) {
         try {
+            System.out.println("Iveskite id");
+            String id = sc.next();
             int pId = Integer.parseInt(id);
             ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
             for (int i = 0; i < pajamos.size(); i++) {
@@ -80,8 +105,15 @@ public class Biudzetas {
         return null;
     }
 
-    public IslaiduIrasas gautiIslaiduIrasa(String id) {
+    public void atvaizduotiIslaiduIrasa(Scanner sc) {
+        IslaiduIrasas irasas = gautiIslaiduIrasa(sc);
+        if (irasas != null) System.out.println(irasas.getDisplayString());
+    }
+
+    public IslaiduIrasas gautiIslaiduIrasa(Scanner sc) {
         try {
+            System.out.println("Iveskite id");
+            String id = sc.next();
             ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
             int pId = Integer.parseInt(id);
             for (int i = 0; i < islaidos.size(); i++) {
@@ -117,7 +149,7 @@ public class Biudzetas {
         }
 
         for(PajamuIrasas p : pajamos) {
-            System.out.println(p.data + " - " + p.getId() + " - suma: " + p.suma + "; kategorija: " + p.pajamuKategorija + "; ar i banka: " + p.pozymisArIBanka);
+            System.out.println(p.getDisplayString());
         }
     }
 
@@ -129,17 +161,18 @@ public class Biudzetas {
         }
 
         for(IslaiduIrasas p : islaidos) {
-            System.out.println(p.data + " - " + p.getId() + " - suma: " + p.suma + "; kategorija: " + p.islaiduKategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
+            System.out.println(p.getDisplayString());
         }
     }
 
-    public void pasalintiPajamuIrasa(String id) {
+    public void pasalintiPajamuIrasa(Scanner sc) {
         try {
-            ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
+            System.out.println("Iveskite id");
+            String id = sc.next();
             int pId = Integer.parseInt(id);
-            for (int i = 0; i < pajamos.size(); i++) {
-                if (pajamos.get(i).getId() == pId) {
-                    pajamos.remove(i);
+            for (int i = 0; i < irasai.size(); i++) {
+                if (irasai.get(i).getId() == pId) {
+                    irasai.remove(i);
                     System.out.println(pId + " irasas pasalintas");
                     return;
                 }
@@ -149,13 +182,14 @@ public class Biudzetas {
         }
     }
 
-    public void pasalintiIslaiduIrasa(String id) {
+    public void pasalintiIslaiduIrasa(Scanner sc) {
         try {
-            ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
+            System.out.println("Iveskite id");
+            String id = sc.next();
             int pId = Integer.parseInt(id);
-            for (int i = 0; i < islaidos.size(); i++) {
-                if (islaidos.get(i).getId() == pId) {
-                    islaidos.remove(i);
+            for (int i = 0; i < irasai.size(); i++) {
+                if (irasai.get(i).getId() == pId) {
+                    irasai.remove(i);
                     System.out.println(pId + " irasas pasalintas");
                     return;
                 }
@@ -167,13 +201,10 @@ public class Biudzetas {
 
     public void redaguotiPajamuIrasa(Scanner sc) {
         try {
-            System.out.println("Iveskite Id");
-            String input = sc.next();
-
-            PajamuIrasas item = gautiPajamuIrasa(input);
+            PajamuIrasas item = gautiPajamuIrasa(sc);
             if (item == null) return;
 
-            input = processChange(sc, "Suma: " + item.suma);
+            String input = processChange(sc, "Suma: " + item.suma);
             if (input != null) {
                 item.suma = Float.parseFloat(input);
             }
@@ -199,13 +230,10 @@ public class Biudzetas {
 
     public void redaguotiIslaiduIrasa(Scanner sc) {
         try {
-            System.out.println("Iveskite Id");
-            String input = sc.next();
-
-            IslaiduIrasas item = gautiIslaiduIrasa(input);
+            IslaiduIrasas item = gautiIslaiduIrasa(sc);
             if (item == null) return;
 
-            input = processChange(sc, "Suma: " + item.suma);
+            String input = processChange(sc, "Suma: " + item.suma);
             if (input != null) {
                 item.suma = Float.parseFloat(input);
             }

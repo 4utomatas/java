@@ -16,11 +16,6 @@ public class IslaiduIrasas extends Irasas {
         atsiskaitymoBudas = budas;
     }
 
-    void parse(String line) {
-
-
-    }
-
     @Override
     public String toString() {
         return  "I," + getId() +
@@ -29,5 +24,9 @@ public class IslaiduIrasas extends Irasas {
                 "," + suma +
                 "," + data +
                 "," + papildomaInfo + ";\n";
+    }
+
+    public String getDisplayString() {
+        return this.data + " suma: " + this.suma + "; kategorija: " + this.islaiduKategorija + "; atsiskaitymo budas: " + this.atsiskaitymoBudas + "; papildoma informacija: " + this.papildomaInfo;
     }
 }
