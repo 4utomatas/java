@@ -37,12 +37,12 @@ public class Main {
                     biudzetas.pridetiIslaiduIrasa(suma, kategorija, atsiskaitymoBudas, papildomaInfo);
                 }
                 case "3" -> {
-                    System.out.println("Iveskite index");
+                    System.out.println("Iveskite ID");
                     input = sc.next();
                     biudzetas.gautiPajamuIrasa(input);
                 }
                 case "4" -> {
-                    System.out.println("Iveskite index");
+                    System.out.println("Iveskite ID");
                     input = sc.next();
                     biudzetas.gautiIslaiduIrasa(input);
                 }
