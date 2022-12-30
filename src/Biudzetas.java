@@ -24,22 +24,28 @@ public class Biudzetas {
         System.out.println("Pridetas irasas");
     }
 
-    public void gautiPajamuIrasa(String index) {
-        int i = Integer.parseInt(index);
-        if(pajamos.size() - 1 < i ||  pajamos.get(i) == null) {
-            System.out.println("Irasas nerastas");
-            return;
+    public void gautiPajamuIrasa(String id) {
+        int pId = Integer.parseInt(id);
+        for (int i = 0; i < pajamos.size(); i++) {
+            if (pajamos.get(i).id == pId) {
+                PajamuIrasas p = pajamos.get(i);
+                System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
+                return;
+            }
         }
-        System.out.println("Pajamos yra: " + pajamos.get(i).suma);
+        System.out.println("Irasas nerastas.");
     }
 
-    public void gautiIslaiduIrasa(String index) {
-        int i = Integer.parseInt(index);
-        if(islaidos.size() - 1 < i || islaidos.get(i) == null) {
-            System.out.println("Irasas nerastas");
-            return;
+    public void gautiIslaiduIrasa(String id) {
+        int pId = Integer.parseInt(id);
+        for (int i = 0; i < islaidos.size(); i++) {
+            if (islaidos.get(i).id == pId) {
+                IslaiduIrasas p = islaidos.get(i);
+                System.out.println(p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
+                return;
+            }
         }
-        System.out.println("Islaidos yra: " + islaidos.get(i).suma);
+        System.out.println("Irasas nerastas.");
     }
 
     public float balansas() {
