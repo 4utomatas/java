@@ -6,18 +6,16 @@ public class Biudzetas {
 
     public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
         int arIB = Integer.parseInt(arIBanka);
         boolean b = arIB == 1;
-        pajamos[pajamuIndex] = new PajamuIrasas(s, k, b, papildomaInfo);
+        pajamos[pajamuIndex] = new PajamuIrasas(s, kategorija, b, papildomaInfo);
         pajamuIndex++;
         System.out.println("Pridetas irasas");
     }
 
     public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
         float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
-        islaidos[islaiduIndex] = new IslaiduIrasas(s, k, atsiskaitymoBudas, papildomaInfo);
+        islaidos[islaiduIndex] = new IslaiduIrasas(s, kategorija, atsiskaitymoBudas, papildomaInfo);
         islaiduIndex++;
         System.out.println("Pridetas irasas");
     }
