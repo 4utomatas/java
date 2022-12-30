@@ -37,13 +37,13 @@ public class Main {
                     biudzetas.pridetiIslaiduIrasa(suma, kategorija, atsiskaitymoBudas, papildomaInfo);
                 }
                 case "3" -> {
-                    System.out.println("Iveskite index");
+                    System.out.println("Iveskite ID");
                     input = sc.next();
                     PajamuIrasas p = biudzetas.gautiPajamuIrasa(input);
                     System.out.println(p.getId() + " - suma: " + p.suma + "; kategorija: " + p.pajamuKategorija + "; ar i banka: " + p.pozymisArIBanka);
                 }
                 case "4" -> {
-                    System.out.println("Iveskite index");
+                    System.out.println("Iveskite ID");
                     input = sc.next();
                     IslaiduIrasas p = biudzetas.gautiIslaiduIrasa(input);
                     System.out.println(p.getId() + " - suma: " + p.suma + "; kategorija: " + p.islaiduKategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
