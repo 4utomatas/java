@@ -144,11 +144,10 @@ public class Biudzetas {
     public void pasalintiPajamuIrasa(Scanner sc) {
         System.out.println("Iveskite id");
         String id = sc.next();
-        ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
         int pId = Integer.parseInt(id);
-        for (int i = 0; i < pajamos.size(); i++) {
-            if (pajamos.get(i).getId() == pId) {
-                pajamos.remove(i);
+        for (int i = 0; i < irasai.size(); i++) {
+            if (irasai.get(i).getId() == pId) {
+                irasai.remove(i);
                 System.out.println(pId + " irasas pasalintas");
                 return;
             }
@@ -158,11 +157,10 @@ public class Biudzetas {
     public void pasalintiIslaiduIrasa(Scanner sc) {
         System.out.println("Iveskite id");
         String id = sc.next();
-        ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
         int pId = Integer.parseInt(id);
-        for (int i = 0; i < islaidos.size(); i++) {
-            if (islaidos.get(i).getId() == pId) {
-                islaidos.remove(i);
+        for (int i = 0; i < irasai.size(); i++) {
+            if (irasai.get(i).getId() == pId) {
+                irasai.remove(i);
                 System.out.println(pId + " irasas pasalintas");
                 return;
             }
