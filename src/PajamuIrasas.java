@@ -8,13 +8,20 @@ public class PajamuIrasas extends Irasas {
         pajamuKategorija = kat;
         pozymisArIBanka = pozymis;
     }
+
+    PajamuIrasas(float sum, int kat, boolean pozymis, String info, LocalDateTime dateTime) {
+        super(sum, info, dateTime);
+        pajamuKategorija = kat;
+        pozymisArIBanka = pozymis;
+    }
+
     @Override
     public String toString() {
-        return  "Id=" + getId() +
-                ", pajamuKategorija=" + pajamuKategorija +
-                ", ar i banka='" + pozymisArIBanka + '\'' +
-                ", suma=" + suma +
-                ", data=" + data +
-                ", papildomaInfo='" + papildomaInfo + '\'';
+        return  "P," + getId() +
+                "," + pajamuKategorija +
+                "," + pozymisArIBanka +
+                "," + suma +
+                "," + data +
+                "," + papildomaInfo + ";\n";
     }
 }

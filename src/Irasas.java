@@ -15,6 +15,14 @@ public class Irasas {
         papildomaInfo = info;
     }
 
+    Irasas(float sum, String info, LocalDateTime dateTime) {
+        counter++;
+        id = counter;
+        data = dateTime;
+        suma = sum;
+        papildomaInfo = info;
+    }
+
     public int getId() {
         return id;
     }

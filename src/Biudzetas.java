@@ -4,6 +4,14 @@ import java.util.Scanner;
 public class Biudzetas {
     private ArrayList<Irasas> irasai = new ArrayList<>();
 
+    public ArrayList<Irasas> getIrasai() {
+        return irasai;
+    }
+
+    public void setIrasai(ArrayList<Irasas> list) {
+        irasai = list;
+    }
+
     public void pridetiIrasa(Irasas irasas) {
         irasai.add(irasas);
     }
@@ -51,7 +59,7 @@ public class Biudzetas {
     public ArrayList<IslaiduIrasas> gautiIslaiduIrasus() {
         ArrayList<IslaiduIrasas> list = new ArrayList<>();
         for(Irasas i : irasai) {
-            if(i instanceof PajamuIrasas) {
+            if(i instanceof IslaiduIrasas) {
                 list.add((IslaiduIrasas) i);
             }
         }

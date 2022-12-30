@@ -8,17 +8,26 @@ public class IslaiduIrasas extends Irasas {
         super(sum, info);
         islaiduKategorija = kat;
         atsiskaitymoBudas = budas;
-        papildomaInfo = info;
-        data = LocalDateTime.now();
+    }
+
+    IslaiduIrasas(float sum, int kat, String budas, String info, LocalDateTime dateTime) {
+        super(sum, info, dateTime);
+        islaiduKategorija = kat;
+        atsiskaitymoBudas = budas;
+    }
+
+    void parse(String line) {
+
+
     }
 
     @Override
     public String toString() {
-        return  "Id=" + getId() +
-                ", islaiduKategorija=" + islaiduKategorija +
-                ", atsiskaitymoBudas='" + atsiskaitymoBudas + '\'' +
-                ", suma=" + suma +
-                ", data=" + data +
-                ", papildomaInfo='" + papildomaInfo + '\'';
+        return  "I," + getId() +
+                "," + islaiduKategorija +
+                "," + atsiskaitymoBudas +
+                "," + suma +
+                "," + data +
+                "," + papildomaInfo + ";\n";
     }
 }
