@@ -9,25 +9,33 @@ public class Biudzetas {
     }
 
     public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
-        float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
-        int arIB = Integer.parseInt(arIBanka);
-        boolean b = arIB == 1;
+        try {
+            float s = Float.parseFloat(suma);
+            int k = Integer.parseInt(kategorija);
+            int arIB = Integer.parseInt(arIBanka);
+            boolean b = arIB == 1;
 
-        PajamuIrasas p = new PajamuIrasas(s, k, b, papildomaInfo);
-        pridetiIrasa(p);
+            PajamuIrasas p = new PajamuIrasas(s, k, b, papildomaInfo);
+            pridetiIrasa(p);
 
-        System.out.println("Pridetas irasas");
+            System.out.println("Pridetas irasas");
+        } catch(NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
+        }
     }
 
     public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
-        float s = Float.parseFloat(suma);
-        int k = Integer.parseInt(kategorija);
+        try {
+            float s = Float.parseFloat(suma);
+            int k = Integer.parseInt(kategorija);
 
-        IslaiduIrasas i = new IslaiduIrasas(s, k, atsiskaitymoBudas, papildomaInfo);
-        pridetiIrasa(i);
+            IslaiduIrasas i = new IslaiduIrasas(s, k, atsiskaitymoBudas, papildomaInfo);
+            pridetiIrasa(i);
 
-        System.out.println("Pridetas irasas");
+            System.out.println("Pridetas irasas");
+        } catch(NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
+        }
     }
 
     public ArrayList<PajamuIrasas> gautiPajamuIrasus() {
@@ -51,27 +59,37 @@ public class Biudzetas {
     }
 
     public PajamuIrasas gautiPajamuIrasa(String id) {
-        ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
-        int pId = Integer.parseInt(id);
-        for (int i = 0; i < pajamos.size(); i++) {
-            if (pajamos.get(i).getId() == pId) {
-                return pajamos.get(i);
+        try {
+            int pId = Integer.parseInt(id);
+            ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
+            for (int i = 0; i < pajamos.size(); i++) {
+                if (pajamos.get(i).getId() == pId) {
+                    return pajamos.get(i);
+                }
             }
+            System.out.println("Irasas nerastas");
+        } catch(NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
+        } finally {
+            return null;
         }
-        System.out.println("Irasas nerastas");
-        return null;
     }
 
     public IslaiduIrasas gautiIslaiduIrasa(String id) {
-        ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
-        int pId = Integer.parseInt(id);
-        for (int i = 0; i < islaidos.size(); i++) {
-            if (islaidos.get(i).getId() == pId) {
-                return islaidos.get(i);
+        try {
+            ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
+            int pId = Integer.parseInt(id);
+            for (int i = 0; i < islaidos.size(); i++) {
+                if (islaidos.get(i).getId() == pId) {
+                    return islaidos.get(i);
+                }
             }
+            System.out.println("Irasas nerastas");
+        } catch(NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
+        } finally {
+            return null;
         }
-        System.out.println("Irasas nerastas");
-        return null;
     }
 
     public float balansas() {
@@ -112,82 +130,98 @@ public class Biudzetas {
     }
 
     public void pasalintiPajamuIrasa(String id) {
-        ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
-        int pId = Integer.parseInt(id);
-        for (int i = 0; i < pajamos.size(); i++) {
-            if (pajamos.get(i).getId() == pId) {
-                pajamos.remove(i);
-                System.out.println(pId + " irasas pasalintas");
-                return;
+        try {
+            ArrayList<PajamuIrasas> pajamos = gautiPajamuIrasus();
+            int pId = Integer.parseInt(id);
+            for (int i = 0; i < pajamos.size(); i++) {
+                if (pajamos.get(i).getId() == pId) {
+                    pajamos.remove(i);
+                    System.out.println(pId + " irasas pasalintas");
+                    return;
+                }
             }
+        } catch(NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
         }
     }
 
     public void pasalintiIslaiduIrasa(String id) {
-        ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
-        int pId = Integer.parseInt(id);
-        for (int i = 0; i < islaidos.size(); i++) {
-            if (islaidos.get(i).getId() == pId) {
-                islaidos.remove(i);
-                System.out.println(pId + " irasas pasalintas");
-                return;
+        try {
+            ArrayList<IslaiduIrasas> islaidos = gautiIslaiduIrasus();
+            int pId = Integer.parseInt(id);
+            for (int i = 0; i < islaidos.size(); i++) {
+                if (islaidos.get(i).getId() == pId) {
+                    islaidos.remove(i);
+                    System.out.println(pId + " irasas pasalintas");
+                    return;
+                }
             }
+        } catch(NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
         }
     }
 
     public void redaguotiPajamuIrasa(Scanner sc) {
-        System.out.println("Iveskite Id");
-        String input = sc.next();
+        try {
+            System.out.println("Iveskite Id");
+            String input = sc.next();
 
-        PajamuIrasas item = gautiPajamuIrasa(input);
-        if (item == null) return;
+            PajamuIrasas item = gautiPajamuIrasa(input);
+            if (item == null) return;
 
-        input = processChange(sc, "Suma: " + item.suma);
-        if (input != null) {
-            item.suma = Float.parseFloat(input);
-        }
+            input = processChange(sc, "Suma: " + item.suma);
+            if (input != null) {
+                item.suma = Float.parseFloat(input);
+            }
 
-        input = processChange(sc, "Kategorija: " + item.pajamuKategorija);
-        if (input != null) {
-            item.pajamuKategorija = Integer.parseInt(input);
-        }
+            input = processChange(sc, "Kategorija: " + item.pajamuKategorija);
+            if (input != null) {
+                item.pajamuKategorija = Integer.parseInt(input);
+            }
 
-        input = processChange(sc, "Ar i banka: " + item.pozymisArIBanka);
-        if (input != null) {
-            item.pozymisArIBanka = Integer.parseInt(input) == 1;
-        }
+            input = processChange(sc, "Ar i banka: " + item.pozymisArIBanka);
+            if (input != null) {
+                item.pozymisArIBanka = Integer.parseInt(input) == 1;
+            }
 
-        input = processChange(sc, "Papildoma informacija: " + item.papildomaInfo);
-        if (input != null) {
-            item.papildomaInfo = input;
+            input = processChange(sc, "Papildoma informacija: " + item.papildomaInfo);
+            if (input != null) {
+                item.papildomaInfo = input;
+            }
+        } catch(NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
         }
     }
 
     public void redaguotiIslaiduIrasa(Scanner sc) {
-        System.out.println("Iveskite Id");
-        String input = sc.next();
+        try {
+            System.out.println("Iveskite Id");
+            String input = sc.next();
 
-        IslaiduIrasas item = gautiIslaiduIrasa(input);
-        if (item == null) return;
+            IslaiduIrasas item = gautiIslaiduIrasa(input);
+            if (item == null) return;
 
-        input = processChange(sc, "Suma: " + item.suma);
-        if (input != null) {
-            item.suma = Float.parseFloat(input);
-        }
+            input = processChange(sc, "Suma: " + item.suma);
+            if (input != null) {
+                item.suma = Float.parseFloat(input);
+            }
 
-        input = processChange(sc, "Kategorija: " + item.islaiduKategorija);
-        if (input != null) {
-            item.islaiduKategorija = Integer.parseInt(input);
-        }
+            input = processChange(sc, "Kategorija: " + item.islaiduKategorija);
+            if (input != null) {
+                item.islaiduKategorija = Integer.parseInt(input);
+            }
 
-        input = processChange(sc, "Ar i banka: " + item.atsiskaitymoBudas);
-        if (input != null) {
-            item.atsiskaitymoBudas = input;
-        }
+            input = processChange(sc, "Ar i banka: " + item.atsiskaitymoBudas);
+            if (input != null) {
+                item.atsiskaitymoBudas = input;
+            }
 
-        input = processChange(sc, "Papildoma informacija: " + item.papildomaInfo);
-        if (input != null) {
-            item.papildomaInfo = input;
+            input = processChange(sc, "Papildoma informacija: " + item.papildomaInfo);
+            if (input != null) {
+                item.papildomaInfo = input;
+            }
+        } catch (NumberFormatException nfe) {
+            System.out.println("Klaida! Ivestas ne skaicius!");
         }
     }
 
