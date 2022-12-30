@@ -33,7 +33,7 @@ public class Failas {
                 if (el[0].compareTo("P") == 0) {
                     irasai.add(new PajamuIrasas(
                         Float.parseFloat(el[4]),
-                        Integer.parseInt(el[2]),
+                        el[2],
                         Boolean.parseBoolean(el[3]),
                         el[6],
                         LocalDateTime.parse(el[5])
@@ -41,7 +41,7 @@ public class Failas {
                 } else {
                     irasai.add(new IslaiduIrasas(
                             Float.parseFloat(el[4]),
-                            Integer.parseInt(el[2]),
+                            el[2],
                             el[3],
                             el[6],
                             LocalDateTime.parse(el[5])
