@@ -1,10 +1,20 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Biudzetas {
     private ArrayList<PajamuIrasas> pajamos = new ArrayList<PajamuIrasas>();
     private ArrayList<IslaiduIrasas> islaidos = new ArrayList<IslaiduIrasas>();
 
-    public void pridetiPajamuIrasa(String suma, String kategorija, String arIBanka, String papildomaInfo) {
+    public void pridetiPajamuIrasa(Scanner sc) {
+        System.out.println("Iveskite suma");
+        String suma = sc.next();
+        System.out.println("Iveskite kategorija");
+        String kategorija = sc.next();
+        System.out.println("Iveskite Ar i banka? Taip: 1, Ne: 0");
+        String arIBanka = sc.next();
+        System.out.println("Iveskite papildoma informacija");
+        String papildomaInfo = sc.next();
+
         float s = Float.parseFloat(suma);
         int arIB = Integer.parseInt(arIBanka);
         boolean b = arIB == 1;
@@ -15,7 +25,16 @@ public class Biudzetas {
         System.out.println("Pridetas irasas");
     }
 
-    public void pridetiIslaiduIrasa(String suma, String kategorija, String atsiskaitymoBudas, String papildomaInfo) {
+    public void pridetiIslaiduIrasa(Scanner sc) {
+        System.out.println("Iveskite suma");
+        String suma = sc.next();
+        System.out.println("Iveskite kategorija");
+        String kategorija = sc.next();
+        System.out.println("Iveskite Atsiskaitymo buda");
+        String atsiskaitymoBudas = sc.next();
+        System.out.println("Iveskite papildoma informacija");
+        String papildomaInfo = sc.next();
+
         float s = Float.parseFloat(suma);
 
         IslaiduIrasas i = new IslaiduIrasas(s, kategorija, atsiskaitymoBudas, papildomaInfo);
@@ -24,24 +43,28 @@ public class Biudzetas {
         System.out.println("Pridetas irasas");
     }
 
-    public void gautiPajamuIrasa(String id) {
+    public void gautiPajamuIrasa(Scanner sc) {
+        System.out.println("Iveskite id");
+        String id = sc.next();
         int pId = Integer.parseInt(id);
         for (int i = 0; i < pajamos.size(); i++) {
             if (pajamos.get(i).id == pId) {
                 PajamuIrasas p = pajamos.get(i);
-                System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
+                System.out.println(p.getDisplayString());
                 return;
             }
         }
         System.out.println("Irasas nerastas.");
     }
 
-    public void gautiIslaiduIrasa(String id) {
+    public void gautiIslaiduIrasa(Scanner sc) {
+        System.out.println("Iveskite id");
+        String id = sc.next();
         int pId = Integer.parseInt(id);
         for (int i = 0; i < islaidos.size(); i++) {
             if (islaidos.get(i).id == pId) {
                 IslaiduIrasas p = islaidos.get(i);
-                System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
+                System.out.println(p.getDisplayString());
                 return;
             }
         }
@@ -68,7 +91,7 @@ public class Biudzetas {
         }
 
         for(PajamuIrasas p : pajamos) {
-            System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; ar i banka: " + p.pozymisArIBanka);
+            System.out.println(p.getDisplayString());
         }
     }
 
@@ -79,11 +102,13 @@ public class Biudzetas {
         }
 
         for(IslaiduIrasas p : islaidos) {
-            System.out.println(p.data + " - " + p.id + " - suma: " + p.suma + "; kategorija: " + p.kategorija + "; atsiskaitymo budas: " + p.atsiskaitymoBudas);
+            System.out.println(p.getDisplayString());
         }
     }
 
-    public void pasalintiPajamuIrasa(String id) {
+    public void pasalintiPajamuIrasa(Scanner sc) {
+        System.out.println("Iveskite id");
+        String id = sc.next();
         int pId = Integer.parseInt(id);
         for (int i = 0; i < pajamos.size(); i++) {
             if (pajamos.get(i).id == pId) {
@@ -94,7 +119,9 @@ public class Biudzetas {
         }
     }
 
-    public void pasalintiIslaiduIrasa(String id) {
+    public void pasalintiIslaiduIrasa(Scanner sc) {
+        System.out.println("Iveskite id");
+        String id = sc.next();
         int pId = Integer.parseInt(id);
         for (int i = 0; i < islaidos.size(); i++) {
             if (islaidos.get(i).id == pId) {

@@ -14,60 +14,16 @@ public class Main {
             input = sc.next();
             System.out.println("______________________");
             switch(input) {
-                case "1" -> {
-                    System.out.println("Iveskite suma");
-                    String suma = sc.next();
-                    System.out.println("Iveskite kategorija");
-                    String kategorija = sc.next();
-                    System.out.println("Iveskite Ar i banka? Taip: 1, Ne: 0");
-                    String arIBanka = sc.next();
-                    System.out.println("Iveskite papildoma informacija");
-                    String papildomaInfo = sc.next();
-                    biudzetas.pridetiPajamuIrasa(suma, kategorija, arIBanka, papildomaInfo);
-                }
-                case "2" -> {
-                    System.out.println("Iveskite suma");
-                    String suma = sc.next();
-                    System.out.println("Iveskite kategorija");
-                    String kategorija = sc.next();
-                    System.out.println("Iveskite Atsiskaitymo buda");
-                    String atsiskaitymoBudas = sc.next();
-                    System.out.println("Iveskite papildoma informacija");
-                    String papildomaInfo = sc.next();
-                    biudzetas.pridetiIslaiduIrasa(suma, kategorija, atsiskaitymoBudas, papildomaInfo);
-                }
-                case "3" -> {
-                    System.out.println("Iveskite ID");
-                    input = sc.next();
-                    biudzetas.gautiPajamuIrasa(input);
-                }
-                case "4" -> {
-                    System.out.println("Iveskite ID");
-                    input = sc.next();
-                    biudzetas.gautiIslaiduIrasa(input);
-                }
-                case "5" -> {
-                    System.out.println("Balansas: " + biudzetas.balansas());
-                }
-                case "6" -> {
-                    biudzetas.atvaizduotiPajamuIrasus();
-                }
-                case "7" -> {
-                    biudzetas.atvaizduotiIslaiduIrasus();
-                }
-                case "8" -> {
-                    System.out.println("Iveskite id");
-                    input = sc.next();
-                    biudzetas.pasalintiPajamuIrasa(input);
-                }
-                case "9" -> {
-                    System.out.println("Iveskite id");
-                    input = sc.next();
-                    biudzetas.pasalintiIslaiduIrasa(input);
-                }
-                case "x" -> {
-                    run = false;
-                }
+                case "1" -> biudzetas.pridetiPajamuIrasa(sc);
+                case "2" -> biudzetas.pridetiIslaiduIrasa(sc);
+                case "3" -> biudzetas.gautiPajamuIrasa(sc);
+                case "4" -> biudzetas.gautiIslaiduIrasa(sc);
+                case "5" -> System.out.println("Balansas: " + biudzetas.balansas());
+                case "6" -> biudzetas.atvaizduotiPajamuIrasus();
+                case "7" -> biudzetas.atvaizduotiIslaiduIrasus();
+                case "8" -> biudzetas.pasalintiPajamuIrasa(sc);
+                case "9" -> biudzetas.pasalintiIslaiduIrasa(sc);
+                case "x" -> run = false;
                 default -> System.out.println("Bloga įvestis...");
             }
         }
